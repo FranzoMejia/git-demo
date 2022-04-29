@@ -1,0 +1,27 @@
+{
+  "adminApp": {
+    "domicilio": {
+      "home": {
+        "title": "Domicilios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Domicilio",
+        "createOrEditLabel": "Create or edit a Domicilio",
+        "notFound": "No Domicilios found"
+      },
+      "created": "A new Domicilio is created with identifier {{ param }}",
+      "updated": "A Domicilio is updated with identifier {{ param }}",
+      "deleted": "A Domicilio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Domicilio {{ id }}?"
+      },
+      "detail": {
+        "title": "Domicilio"
+      },
+      "id": "ID",
+      "descripcion": "Descripcion",
+      "ubicacion": "Ubicacion",
+      "pedido": "Pedido",
+      "cliente": "Cliente"
+    }
+  }
+}

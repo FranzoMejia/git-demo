@@ -48,6 +48,14 @@ public class CacheConfiguration {
             createCache(cm, com.admintool.app.domain.User.class.getName());
             createCache(cm, com.admintool.app.domain.Authority.class.getName());
             createCache(cm, com.admintool.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.admintool.app.domain.Cliente.class.getName());
+            createCache(cm, com.admintool.app.domain.Cliente.class.getName() + ".domicilios");
+            createCache(cm, com.admintool.app.domain.Cliente.class.getName() + ".pedidos");
+            createCache(cm, com.admintool.app.domain.Domicilio.class.getName());
+            createCache(cm, com.admintool.app.domain.Pedido.class.getName());
+            createCache(cm, com.admintool.app.domain.Pedido.class.getName() + ".productos");
+            createCache(cm, com.admintool.app.domain.Producto.class.getName());
+            createCache(cm, com.admintool.app.domain.Catalogo.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

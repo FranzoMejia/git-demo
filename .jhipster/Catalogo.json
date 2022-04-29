@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20220419173723",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "catalogo",
+  "fields": [
+    {
+      "fieldName": "productoDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "precioSugerido",
+      "fieldType": "Float"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Catalogo",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

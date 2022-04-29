@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="catalogo">
+      <h2 data-cy="catalogoDetailsHeading"><span jhiTranslate="adminApp.catalogo.detail.title">Catalogo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ catalogo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.catalogo.productoDesc">Producto Desc</span></dt>
+        <dd>
+          <span>{{ catalogo.productoDesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.catalogo.precioSugerido">Precio Sugerido</span></dt>
+        <dd>
+          <span>{{ catalogo.precioSugerido }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/catalogo', catalogo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

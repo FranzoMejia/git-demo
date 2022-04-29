@@ -1,0 +1,59 @@
+
+entity Cliente {
+	nombre String required, 
+    telefono String,
+  
+}
+
+entity Domicilio {
+	descripcion String required,
+    ubicacion String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Pedido {
+	total Float,
+	preparado Boolean,
+	entregado Boolean
+}
+
+entity Producto {
+	producto String required,
+    precio Float
+}
+
+entity Catalogo{
+	productoDesc String,
+    precioSugerido Float
+}
+
+
+
+relationship OneToMany {
+	Cliente to Domicilio{cliente}
+}
+
+relationship OneToMany {
+	Cliente to Pedido{cliente}
+}
+
+relationship OneToMany {
+	Pedido to Producto
+}
+
+
+
+// Set pagination options
+paginate Cliente with infinite-scroll
+paginate Pedido with pagination
+paginate Catalogo with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

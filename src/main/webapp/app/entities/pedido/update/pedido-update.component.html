@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pedido-heading" data-cy="PedidoCreateUpdateHeading" jhiTranslate="adminApp.pedido.home.createOrEditLabel">
+        Create or edit a Pedido
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.total" for="field_total">Total</label>
+          <input type="number" class="form-control" name="total" id="field_total" data-cy="total" formControlName="total" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.fechaGenerado" for="field_fechaGenerado">Fecha Generado</label>
+          <div class="input-group">
+            <input
+              id="field_fechaGenerado"
+              data-cy="fechaGenerado"
+              type="text"
+              class="form-control"
+              name="fechaGenerado"
+              ngbDatepicker
+              #fechaGeneradoDp="ngbDatepicker"
+              formControlName="fechaGenerado"
+            />
+            <button type="button" class="btn btn-secondary" (click)="fechaGeneradoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.fechaEntrega" for="field_fechaEntrega">Fecha Entrega</label>
+          <div class="input-group">
+            <input
+              id="field_fechaEntrega"
+              data-cy="fechaEntrega"
+              type="text"
+              class="form-control"
+              name="fechaEntrega"
+              ngbDatepicker
+              #fechaEntregaDp="ngbDatepicker"
+              formControlName="fechaEntrega"
+            />
+            <button type="button" class="btn btn-secondary" (click)="fechaEntregaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.preparado" for="field_preparado">Preparado</label>
+          <input type="checkbox" class="form-check" name="preparado" id="field_preparado" data-cy="preparado" formControlName="preparado" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.entregado" for="field_entregado">Entregado</label>
+          <input type="checkbox" class="form-check" name="entregado" id="field_entregado" data-cy="entregado" formControlName="entregado" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.foraneo" for="field_foraneo">Foraneo</label>
+          <input type="checkbox" class="form-check" name="foraneo" id="field_foraneo" data-cy="foraneo" formControlName="foraneo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.domicilio" for="field_domicilio">Domicilio</label>
+          <select class="form-control" id="field_domicilio" data-cy="domicilio" name="domicilio" formControlName="domicilio">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="domicilioOption.id === editForm.get('domicilio')!.value?.id ? editForm.get('domicilio')!.value : domicilioOption"
+              *ngFor="let domicilioOption of domiciliosCollection; trackBy: trackDomicilioById"
+            >
+              {{ domicilioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="adminApp.pedido.cliente" for="field_cliente">Cliente</label>
+          <select class="form-control" id="field_cliente" data-cy="cliente" name="cliente" formControlName="cliente">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="clienteOption.id === editForm.get('cliente')!.value?.id ? editForm.get('cliente')!.value : clienteOption"
+              *ngFor="let clienteOption of clientesSharedCollection; trackBy: trackClienteById"
+            >
+              {{ clienteOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "adminApp": {
+    "domicilio": {
+      "home": {
+        "title": "Domicilios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Domicilio",
+        "createOrEditLabel": "Crear o editar Domicilio",
+        "notFound": "Ningún Domicilios encontrado"
+      },
+      "created": "Un nuevo Domicilio ha sido creado con el identificador {{ param }}",
+      "updated": "Un Domicilio ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Domicilio ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Domicilio {{ id }}?"
+      },
+      "detail": {
+        "title": "Domicilio"
+      },
+      "id": "ID",
+      "descripcion": "Descripcion",
+      "ubicacion": "Ubicacion",
+      "pedido": "Pedido",
+      "cliente": "Cliente"
+    }
+  }
+}

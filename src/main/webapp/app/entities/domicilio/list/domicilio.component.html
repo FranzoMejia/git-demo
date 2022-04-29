@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="DomicilioHeading">
+    <span jhiTranslate="adminApp.domicilio.home.title">Domicilios</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="adminApp.domicilio.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-domicilio"
+        [routerLink]="['/domicilio/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="adminApp.domicilio.home.createLabel"> Create a new Domicilio </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="domicilios?.length === 0">
+    <span jhiTranslate="adminApp.domicilio.home.notFound">No domicilios found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="domicilios && domicilios.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="adminApp.domicilio.descripcion">Descripcion</span></th>
+          <th scope="col"><span jhiTranslate="adminApp.domicilio.ubicacion">Ubicacion</span></th>
+          <th scope="col"><span jhiTranslate="adminApp.domicilio.cliente">Cliente</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let domicilio of domicilios; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/domicilio', domicilio.id, 'view']">{{ domicilio.id }}</a>
+          </td>
+          <td>{{ domicilio.descripcion }}</td>
+          <td>{{ domicilio.ubicacion }}</td>
+          <td>
+            <div *ngIf="domicilio.cliente">
+              <a [routerLink]="['/cliente', domicilio.cliente?.id, 'view']">{{ domicilio.cliente?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/domicilio', domicilio.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/domicilio', domicilio.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(domicilio)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

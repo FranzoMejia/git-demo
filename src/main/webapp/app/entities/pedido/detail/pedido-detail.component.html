@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="pedido">
+      <h2 data-cy="pedidoDetailsHeading"><span jhiTranslate="adminApp.pedido.detail.title">Pedido</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ pedido.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.total">Total</span></dt>
+        <dd>
+          <span>{{ pedido.total }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.fechaGenerado">Fecha Generado</span></dt>
+        <dd>
+          <span>{{ pedido.fechaGenerado | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.fechaEntrega">Fecha Entrega</span></dt>
+        <dd>
+          <span>{{ pedido.fechaEntrega | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.preparado">Preparado</span></dt>
+        <dd>
+          <span>{{ pedido.preparado }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.entregado">Entregado</span></dt>
+        <dd>
+          <span>{{ pedido.entregado }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.foraneo">Foraneo</span></dt>
+        <dd>
+          <span>{{ pedido.foraneo }}</span>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.domicilio">Domicilio</span></dt>
+        <dd>
+          <div *ngIf="pedido.domicilio">
+            <a [routerLink]="['/domicilio', pedido.domicilio?.id, 'view']">{{ pedido.domicilio?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="adminApp.pedido.cliente">Cliente</span></dt>
+        <dd>
+          <div *ngIf="pedido.cliente">
+            <a [routerLink]="['/cliente', pedido.cliente?.id, 'view']">{{ pedido.cliente?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/pedido', pedido.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

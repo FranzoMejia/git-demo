@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220419173719",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cliente",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cliente",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "domicilio",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "domicilio",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "pedido",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "pedido",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20220419173721",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pedido",
+  "fields": [
+    {
+      "fieldName": "total",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "fechaGenerado",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fechaEntrega",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "preparado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "entregado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "foraneo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Pedido",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "domicilio",
+      "otherEntityRelationshipName": "pedido",
+      "ownerSide": true,
+      "relationshipName": "domicilio",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "producto",
+      "otherEntityRelationshipName": "pedido",
+      "relationshipName": "producto",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "pedido",
+      "relationshipName": "cliente",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,11 @@
+id;total;fecha_generado;fecha_entrega;preparado;entregado;foraneo
+1;47500;2022-04-19;2022-04-18;false;false;false
+2;61500;2022-04-18;2022-04-19;false;true;false
+3;76288;2022-04-19;2022-04-19;false;true;true
+4;33064;2022-04-18;2022-04-18;true;false;true
+5;87388;2022-04-19;2022-04-19;true;true;true
+6;92167;2022-04-19;2022-04-19;false;true;true
+7;29231;2022-04-19;2022-04-18;true;false;false
+8;34393;2022-04-19;2022-04-19;false;true;true
+9;23656;2022-04-19;2022-04-19;true;true;false
+10;15494;2022-04-19;2022-04-19;false;true;true
